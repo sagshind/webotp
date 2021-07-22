@@ -1,0 +1,45 @@
+<!doctype html>
+<html ng-app="todoApp">
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>
+    
+    
+    
+    <link rel="stylesheet" href="todo.css">
+  </head>
+  <body>
+    <h2>Todo</h2>
+    
+    <div ng-controller="TodoListController as todoList">
+        
+      <form ng-submit="GenerateOTP()">
+        <div ng-if="RegScreen">
+            <input type="submit">
+        </div>
+      </form>
+      <form ng-submit="verifyOTP()">
+        <div ng-if="OTPScreen" ng-init="loadWebOTP()">
+          <input class="inputotp" ng-model="$root.MobileOTP1" ng-touched="callme()" autocomplete="one-time-code" maxlength="1" move-next-on-maxlength required/>
+          <input class="inputotp" ng-model="$root.MobileOTP2" maxlength="1" move-next-on-maxlength required/>
+          <input class="inputotp" ng-model="$root.MobileOTP3" maxlength="1" move-next-on-maxlength required/>
+          <input class="inputotp" ng-model="$root.MobileOTP4" maxlength="1" move-next-on-maxlength required/>
+          <input class="inputotp" ng-model="$root.MobileOTP5" maxlength="1" move-next-on-maxlength required/>
+          <input class="inputotp" ng-model="$root.MobileOTP6" maxlength="1" move-next-on-maxlength required/>
+            <input type="submit">
+        </div>
+      </form>
+      <form ng-submit="SubmitContsent()">
+        <div ng-if="FinalScreen">
+          OTP Submitted
+        </div>
+      </form>
+      
+      
+    </div>
+    
+    <script src="moveNextOnMaxlength.directive.js"></script>
+    <script src="todo.js"></script>
+  </body>
+</html>
